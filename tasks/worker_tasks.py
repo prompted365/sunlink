@@ -2,7 +2,9 @@ import os
 import time
 import mimetypes
 import asyncio
+import gotrue
 import supabase
+from supabase import create_client, Client
 from dotenv import load_dotenv
 from .celery_app import celery_app
 from solar_api import process_solar_data  # from your solar_api.py
@@ -92,30 +94,25 @@ def process_solar_task(property_id: str):
 
     # Helper to upload a file with correct content type
     def upload_file(local_path: str):
+        """Uploads a file to Supabase Storage and returns the public URL."""
         filename = os.path.basename(local_path)
         remote_path = f"{remote_subdir}/{filename}"
 
         # Attempt to guess the MIME type
-        # If the file is a .gif, ensure we pass 'image/gif'
-        # Otherwise for .png, we'll get 'image/png'
         mime_type, _ = mimetypes.guess_type(local_path)
         if not mime_type:
-            # fallback
-            mime_type = "application/octet-stream"
+            mime_type = "application/octet-stream"  # fallback
 
         with open(local_path, "rb") as f:
-            # The official supabase-py approach
-            # Upsert ensures we overwrite if the file already exists
             sb_client.storage.from_(bucket_name).upload(
                 remote_path,
-                f,
-                options={"upsert": "true", "contentType": mime_type}
+                f
             )
 
-        # Build a public URL for the newly uploaded path
-        url_info = sb_client.storage.from_(bucket_name).get_public_url(remote_path)
-        if url_info and "publicURL" in url_info:
-            return url_info["publicURL"]
+        # Retrieve and return the public URL
+        public_url_resp = sb_client.storage.from_(bucket_name).get_public_url(remote_path)
+        if public_url_resp and "publicURL" in public_url_resp:
+            return public_url_resp["publicURL"]
         return None
 
     # Single-file uploads
