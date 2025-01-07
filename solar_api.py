@@ -418,7 +418,7 @@ async def process_solar_data(lat, lng, sub_dir, api_key):
 
 
 # ----------------------------------------------------------------------------
-# FastAPI Endpoint
+# FastAPI Endpoint #
 # ----------------------------------------------------------------------------
 
 class SolarRequest(BaseModel):
