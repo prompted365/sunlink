@@ -4,7 +4,7 @@ import json
 # Define the URL and the payload
 url = "http://localhost:8000/process"
 payload = {
-    "property_id": "8844ccd4-518c-457d-8886-120e0f32c90c"
+    "property_id": "26002082-e74a-47fb-96f8-e0484acec0d6"
 }
 
 # Set the headers to specify the content type

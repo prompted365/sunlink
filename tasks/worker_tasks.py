@@ -1,13 +1,13 @@
-# tasks/worker_tasks.py
-
 import os
 import time
 import mimetypes
 import asyncio
 import supabase
-
+from dotenv import load_dotenv
 from .celery_app import celery_app
 from solar_api import process_solar_data  # from your solar_api.py
+
+load_dotenv()
 
 @celery_app.task
 def process_solar_task(property_id: str):

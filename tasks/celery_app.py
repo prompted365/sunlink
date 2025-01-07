@@ -11,10 +11,7 @@ load_dotenv()
 # rediss://:<PASSWORD>@<UPSTASH_REDIS_ENDPOINT>:<PORT>
 #
 # In production, store this securely (e.g., in an .env file or secret manager)
-BROKER_URL = os.getenv(
-    "UPSTASH_BROKER_URL",
-    "rediss://:YOUR_UPSTASH_REDIS_PASSWORD@YOUR_UPSTASH_REDIS_HOST:30398"
-)
+BROKER_URL = os.getenv("UPSTASH_BROKER_URL")
 
 # We can use the same URL for the backend, or omit "backend="
 # if we do not need result tracking.
