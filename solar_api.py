@@ -1,3 +1,5 @@
+# solar_api.py
+
 import os
 import io
 import math
@@ -141,7 +143,9 @@ async def download_geotiff_subset(url, api_key, center_lat, center_lng, extent_m
 # -------------------------------------------------------------------
 def save_pil_image(img_pil, sub_dir, prefix='geoTiffImage'):
     """
-    Save a PIL image into the specified sub_dir with a unique name.
+    Save a PIL image into the specified sub_dir with a unique name (.png).
+    We keep the timestamp in the filename so that each file is distinct,
+    but not in the remote subdirectory (that's handled in worker_tasks).
     """
     if not os.path.exists(sub_dir):
         os.makedirs(sub_dir)
@@ -374,6 +378,7 @@ async def process_solar_data(lat, lng, sub_dir, api_key):
     # Optional: Reproject & composite monthly flux + create GIF
     monthly_flux_composite_paths = []
     monthly_comp_pil_images = []
+    gif_filepath = None
     if monthly_data is not None:
         re_monthly_flux, _ = reproject_to_match(
             monthly_data['rasters'],
@@ -411,14 +416,14 @@ async def process_solar_data(lat, lng, sub_dir, api_key):
         "mask_path": mask_path,
         "flux_path": flux_path,
         "monthly_flux_paths": monthly_flux_paths,
-        "annual_flux_composite_path": composite_path,
+        "annual_flux_composite_path": composite_path,  # "FluxOverRGB"
         "monthly_flux_composite_paths": monthly_flux_composite_paths,
         "monthly_flux_composite_gif": gif_filepath
     }
 
 
 # ----------------------------------------------------------------------------
-# FastAPI Endpoint #
+# FastAPI Endpoint (for direct testing)
 # ----------------------------------------------------------------------------
 
 class SolarRequest(BaseModel):
@@ -441,9 +446,6 @@ async def solar_process_endpoint(req: SolarRequest):
         "api_key": "YOUR_GOOGLE_API_KEY"
       }
     """
-    # If no key in request, attempt from environment
     final_key = req.api_key or os.getenv('API_KEY', '')
-
-    # Invoke the async processing function
     results = await process_solar_data(req.lat, req.lng, req.sub_dir, final_key)
     return {"results": results}

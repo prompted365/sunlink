@@ -2,44 +2,42 @@
 
 import os
 import time
+import mimetypes
 import asyncio
 import supabase
 
 from .celery_app import celery_app
-from solar_api import process_solar_data
+from solar_api import process_solar_data  # from your solar_api.py
 
 @celery_app.task
 def process_solar_task(property_id: str):
     """
-    1) Fetches property from Supabase (id, lat, lng).
-    2) Calls process_solar_data() -> returns file paths (including GIF).
-    3) Uploads all files to 'property-images' bucket.
-    4) Updates property row with each file's URL and building_insights_jsonb.
-    5) Marks status='completed'.
+    Celery task that:
+      1) Fetches a property row from Supabase (lat, lng, etc.).
+      2) Runs process_solar_data(...) -> saves images locally as .png/.gif
+      3) Uploads them to 'property-images/{property_id}/filename.png'
+      4) Updates the property row with the resulting public URLs and building insights
+      5) Marks status='completed'
     """
 
-    # -------------------------------------------------------------------------
     # 1) Supabase client
-    # -------------------------------------------------------------------------
     supabase_url = os.getenv("SUPABASE_URL")
     supabase_key = os.getenv("SUPABASE_KEY")
     if not supabase_url or not supabase_key:
-        raise RuntimeError("Missing SUPABASE_URL or SUPABASE_KEY.")
+        raise RuntimeError("Missing SUPABASE_URL or SUPABASE_KEY")
 
     sb_client = supabase.create_client(supabase_url, supabase_key)
 
-    # -------------------------------------------------------------------------
-    # 2) Fetch property row
-    # -------------------------------------------------------------------------
+    # 2) Retrieve property
     resp = sb_client \
         .from_("properties") \
-        .select("id, latitude, longitude") \
+        .select("id, latitude, longitude, status") \
         .eq("id", property_id) \
         .single() \
         .execute()
 
     if not resp.data:
-        print(f"[ERROR] Property not found: {property_id}")
+        print(f"[ERROR] Property {property_id} not found in Supabase.")
         return
 
     lat = resp.data.get("latitude")
@@ -52,39 +50,21 @@ def process_solar_task(property_id: str):
     # Mark property as 'processing'
     sb_client.from_("properties").update({"status": "processing"}).eq("id", property_id).execute()
 
-    # -------------------------------------------------------------------------
-    # 3) Process solar data (async -> sync)
-    # -------------------------------------------------------------------------
+    # 3) Call the solar API logic
     google_solar_key = os.getenv("API_KEY", "")
-    sub_dir = f"./solar_output/{property_id}"
+    local_subdir = f"./solar_output/{property_id}"
     try:
-        results = asyncio.run(process_solar_data(lat, lng, sub_dir, google_solar_key))
+        results = asyncio.run(process_solar_data(lat, lng, local_subdir, google_solar_key))
     except Exception as e:
-        print(f"[ERROR] {e}")
+        print("[ERROR] process_solar_data failed:", e)
         sb_client.from_("properties").update({"status": "failed"}).eq("id", property_id).execute()
         return
 
-    # e.g. results includes:
-    # {
-    #   "building_insights": {...},
-    #   "dsm_path": "...",
-    #   "rgb_path": "...",
-    #   "mask_path": "...",
-    #   "flux_path": "...",
-    #   "annual_flux_composite_path": "...",
-    #   "monthly_flux_paths": [...],
-    #   "monthly_flux_composite_paths": [...],
-    #   "monthly_flux_composite_gif": "...",
-    # }
-
-    # -------------------------------------------------------------------------
-    # 4) Upload all files (Simplified approach, no .status_code checks)
-    # -------------------------------------------------------------------------
+    # 4) Upload to Supabase
     bucket_name = "property-images"
-    now_ms = int(time.time() * 1000)
-    remote_subdir = f"{property_id}_{now_ms}"
+    # No timestamp in subdir -> just "property_id"
+    remote_subdir = property_id  
 
-    # Single-file -> DB column
     single_file_map = {
         "dsm_path": "DSM",
         "rgb_path": "RGB",
@@ -94,65 +74,71 @@ def process_solar_task(property_id: str):
         "monthly_flux_composite_gif": "MonthlyFluxCompositeGIF"
     }
 
-    # Multi-file -> DB array column
     list_file_map = {
         "monthly_flux_paths": "MonthlyFlux12",
         "monthly_flux_composite_paths": "MonthlyFluxComposites"
     }
 
     db_updates = {
-        # single
         "DSM": None,
         "RGB": None,
         "Mask": None,
         "AnnualFlux": None,
         "FluxOverRGB": None,
         "MonthlyFluxCompositeGIF": None,
-        # arrays
         "MonthlyFlux12": [],
         "MonthlyFluxComposites": []
     }
 
-    # --- Upload single files ---
-    for result_key, col_name in single_file_map.items():
-        local_path = results.get(result_key)
+    # Helper to upload a file with correct content type
+    def upload_file(local_path: str):
+        filename = os.path.basename(local_path)
+        remote_path = f"{remote_subdir}/{filename}"
+
+        # Attempt to guess the MIME type
+        # If the file is a .gif, ensure we pass 'image/gif'
+        # Otherwise for .png, we'll get 'image/png'
+        mime_type, _ = mimetypes.guess_type(local_path)
+        if not mime_type:
+            # fallback
+            mime_type = "application/octet-stream"
+
+        with open(local_path, "rb") as f:
+            # The official supabase-py approach
+            # Upsert ensures we overwrite if the file already exists
+            sb_client.storage.from_(bucket_name).upload(
+                remote_path,
+                f,
+                options={"upsert": "true", "contentType": mime_type}
+            )
+
+        # Build a public URL for the newly uploaded path
+        url_info = sb_client.storage.from_(bucket_name).get_public_url(remote_path)
+        if url_info and "publicURL" in url_info:
+            return url_info["publicURL"]
+        return None
+
+    # Single-file uploads
+    for key, column in single_file_map.items():
+        local_path = results.get(key)
         if local_path and os.path.exists(local_path):
-            filename = os.path.basename(local_path)
-            remote_path = f"{remote_subdir}/{filename}"
+            public_url = upload_file(local_path)
+            if public_url:
+                db_updates[column] = public_url
 
-            # We simply do the recommended doc approach
-            upload_resp = sb_client.storage.from_(bucket_name).upload(remote_path, open(local_path, "rb"), {
-                "upsert": "true"
-            })
-            # No .status_code check; we trust "upload_resp" might contain info but we won't parse it
-
-            # Get public URL
-            url_resp = sb_client.storage.from_(bucket_name).get_public_url(remote_path)
-            if url_resp and "publicURL" in url_resp:
-                db_updates[col_name] = url_resp["publicURL"]
-
-    # --- Upload multi-file arrays ---
-    for result_key, col_name in list_file_map.items():
-        path_list = results.get(result_key, [])
-        if isinstance(path_list, list):
-            final_urls = []
-            for local_path in path_list:
+    # Multi-file uploads
+    for key, column in list_file_map.items():
+        file_list = results.get(key, [])
+        if isinstance(file_list, list):
+            urls = []
+            for local_path in file_list:
                 if local_path and os.path.exists(local_path):
-                    filename = os.path.basename(local_path)
-                    remote_path = f"{remote_subdir}/{filename}"
+                    url = upload_file(local_path)
+                    if url:
+                        urls.append(url)
+            db_updates[column] = urls
 
-                    sb_client.storage.from_(bucket_name).upload(remote_path, open(local_path, "rb"), {
-                        "upsert": "true"
-                    })
-                    url_resp = sb_client.storage.from_(bucket_name).get_public_url(remote_path)
-                    if url_resp and "publicURL" in url_resp:
-                        final_urls.append(url_resp["publicURL"])
-
-            db_updates[col_name] = final_urls
-
-    # -------------------------------------------------------------------------
-    # 5) Final DB update (status, building_insights, file columns)
-    # -------------------------------------------------------------------------
+    # 5) Final DB update
     building_insights = results.get("building_insights", {})
     final_update = {
         "status": "completed",
@@ -164,14 +150,15 @@ def process_solar_task(property_id: str):
         "FluxOverRGB": db_updates["FluxOverRGB"],
         "MonthlyFluxCompositeGIF": db_updates["MonthlyFluxCompositeGIF"],
         "MonthlyFlux12": db_updates["MonthlyFlux12"],
-        "MonthlyFluxComposites": db_updates["MonthlyFluxComposites"]
+        "MonthlyFluxComposites": db_updates["MonthlyFluxComposites"],
     }
 
-    sb_client \
-        .from_("properties") \
-        .update(final_update) \
-        .eq("id", property_id) \
-        .execute()
+    sb_client.from_("properties").update(final_update).eq("id", property_id).execute()
 
-    print("[INFO] Completed solar processing for property:", property_id)
-    print("[INFO] Updated columns:", list(final_update.keys()))
+    print(f"[INFO] Done. property_id={property_id}")
+    print("[INFO] Updated columns:")
+    for k, v in final_update.items():
+        if k != "building_insights_jsonb":
+            print(f"  {k}: {v}")
+        else:
+            print("  building_insights_jsonb: [JSON data]")
