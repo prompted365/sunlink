@@ -1,0 +1,24 @@
+# syntax=docker/dockerfile:1
+FROM continuumio/miniconda3:4.12.0
+
+WORKDIR /app
+
+# Copy env file first for caching
+COPY environment.yml /app/environment.yml
+
+# Create environment
+RUN conda env create -f environment.yml && conda clean -afy
+
+# Make sure subsequent commands run inside the environment:
+SHELL ["conda", "run", "-n", "sunlink", "/bin/bash", "-c"]
+
+# Copy the code
+COPY . /app/
+
+# If desired, install your code as a package:
+# RUN pip install -e .
+
+EXPOSE 8000
+
+# final command - run gunicorn or uvicorn
+CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "main:app", "--bind", "0.0.0.0:8000"]
