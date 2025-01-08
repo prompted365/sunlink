@@ -1,15 +1,45 @@
 # syntax=docker/dockerfile:1
-FROM continuumio/miniconda3:4.12.0
 
+# Build stage
+FROM continuumio/miniconda3 AS builder
+
+# Create non-root user
+RUN groupadd -r appuser && useradd -r -g appuser appuser
+
+# Set working directory
 WORKDIR /app
 
-COPY environment.yml /app/environment.yml
+# Copy only the environment file first to leverage layer caching
+COPY environment.yml .
 
-RUN conda env create -f environment.yml && conda clean -afy
+# Create conda environment
+RUN conda env create -f environment.yml && \
+    conda clean -afy
 
-SHELL ["conda", "run", "-n", "sunlink", "/bin/bash", "-c"]
+# Final stage
+FROM continuumio/miniconda3
 
-COPY . /app/
+# Create non-root user
+RUN groupadd -r appuser && useradd -r -g appuser appuser
 
-# Example: Start the Celery worker
+# Set working directory
+WORKDIR /app
+
+# Copy conda environment from builder
+COPY --from=builder /opt/conda/envs/sunlink /opt/conda/envs/sunlink
+
+# Activate conda environment using CONDA_DEFAULT_ENV
+ENV CONDA_DEFAULT_ENV=sunlink
+ENV PATH /opt/conda/envs/sunlink/bin:$PATH
+
+# Copy application files
+COPY . .
+
+# Set proper permissions
+RUN chown -R appuser:appuser /app
+
+# Switch to non-root user
+USER appuser
+
+# Start Celery worker
 CMD ["celery", "-A", "tasks.worker_tasks", "worker", "--loglevel=info"]
