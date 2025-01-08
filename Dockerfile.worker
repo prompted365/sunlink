@@ -1,22 +1,18 @@
+# Dockerfile.worker
 # syntax=docker/dockerfile:1
+FROM python:3.12-alpine@sha256:c157bce5e7d3a196f9f676f6f884ddb8567c395f941cc4bf8ce9adc92c9d16dd
 
-FROM python:3.12-alpine
+RUN apk upgrade --update && \
+    apk add --no-cache build-base gcc gdal gdal-dev zlib
 
-RUN apk upgrade --update
-RUN apk add --no-cache build-base gcc gdal gdal-dev zlib
-
-RUN export CPLUS_INCLUDE_PATH=/usr/include/gdal
-RUN export C_INCLUDE_PATH=/usr/include/gdal
-RUN export LDFLAGS="-L/usr/local/opt/zlib/lib"
-RUN export CPPFLAGS="-I/usr/local/opt/zlib/include"
+ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
+ENV C_INCLUDE_PATH=/usr/include/gdal
+ENV LDFLAGS="-L/usr/local/opt/zlib/lib"
+ENV CPPFLAGS="-I/usr/local/opt/zlib/include"
 
 WORKDIR /app
-COPY . /app
-
+COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of your code
 COPY . .
-
-# Start Celery worker
 CMD ["celery", "-A", "tasks.worker_tasks", "worker", "--loglevel=info"]
