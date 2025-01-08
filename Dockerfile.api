@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM ghcr.io/andrii-rieznik/python-gdal:py3.11-gdal3.9.2
+FROM ghcr.io/andrii-rieznik/python-gdal:py3.11.11-gdal3.9.2
 
 WORKDIR /app
 COPY requirements.txt .
