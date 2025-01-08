@@ -2,8 +2,17 @@
 # syntax=docker/dockerfile:1
 FROM python:3.12-alpine@sha256:c157bce5e7d3a196f9f676f6f884ddb8567c395f941cc4bf8ce9adc92c9d16dd
 
-RUN apk upgrade --update && \
-apk add --no-cache build-base gcc gdal gdal-dev zlib gfortran libffi-dev
+# 1) Install packages needed for gdal + proj + pyproj
+RUN apk upgrade --update && apk add --no-cache \
+    gdal \
+    gdal-dev \
+    proj \
+    proj-dev \
+    zlib-dev \
+    build-base \
+    gcc
+
+WORKDIR /app
 
 ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
 ENV C_INCLUDE_PATH=/usr/include/gdal
