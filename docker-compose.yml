@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile.api
     ports:
-      - "8000:8000"
+      - "8080:8080"
     env_file: .env
     environment:
       - REDIS_URL=${UPSTASH_REDIS_URL}
