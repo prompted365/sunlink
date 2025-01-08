@@ -13,6 +13,8 @@ RUN apk upgrade --update && apk add --no-cache \
 
 WORKDIR /app
 
+ENV PROJ_DIR=/usr
+
 # 2) Copy your requirements
 COPY requirements.txt /app/requirements.txt
 

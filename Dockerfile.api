@@ -18,6 +18,7 @@ ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
 ENV C_INCLUDE_PATH=/usr/include/gdal
 ENV LDFLAGS="-L/usr/local/opt/zlib/lib"
 ENV CPPFLAGS="-I/usr/local/opt/zlib/include"
+ENV PROJ_DIR=/usr
 
 WORKDIR /app
 COPY requirements.txt /app/requirements.txt
