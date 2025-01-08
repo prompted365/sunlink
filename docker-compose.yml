@@ -19,8 +19,8 @@ services:
       - api_data:/data
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
-      interval: 30s
-      timeout: 10s
+      interval: 180s
+      timeout: 120s
       retries: 3
       start_period: 40s
     restart: unless-stopped
@@ -38,8 +38,8 @@ services:
       - worker_data:/data
     healthcheck:
       test: ["CMD", "celery", "-A", "tasks.worker_tasks", "inspect", "ping"]
-      interval: 30s
-      timeout: 10s
+      interval: 180s
+      timeout: 120s
       retries: 3
       start_period: 40s
     restart: unless-stopped
