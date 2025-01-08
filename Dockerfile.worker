@@ -1,16 +1,16 @@
 # syntax=docker/dockerfile:1
-FROM continuumio/miniconda3
+FROM python:3.11-slim
 
 WORKDIR /app
-COPY environment.yml /app/environment.yml
 
-RUN conda env create -f environment.yml && conda clean -afy
+# Copy only requirements
+COPY requirements.txt /app/requirements.txt
 
-# Activate conda environment
-ENV PATH /opt/conda/envs/sunlink/bin:$PATH
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code
-COPY . .
+# Copy the rest of your code
+COPY . /app/
 
 # Start Celery worker
 CMD ["celery", "-A", "tasks.worker_tasks", "worker", "--loglevel=info"]

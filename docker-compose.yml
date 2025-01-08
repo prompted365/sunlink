@@ -6,10 +6,14 @@ services:
       context: .
       dockerfile: Dockerfile.api
     ports:
-      - "8080:8080"
+      - "${PORT:-8080}:${PORT:-8080}"
     env_file: .env
     environment:
       - REDIS_URL=${UPSTASH_REDIS_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - SUPABASE_URL=${SUPABASE_URL}
+      - STORAGE_BUCKET_NAME=${STORAGE_BUCKET_NAME}
+      - API_KEY=${API_KEY}
       - PYTHONUNBUFFERED=1
       - PORT=8080
     depends_on:
@@ -27,16 +31,15 @@ services:
     env_file: .env
     environment:
       - REDIS_URL=${UPSTASH_REDIS_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - SUPABASE_URL=${SUPABASE_URL}
+      - STORAGE_BUCKET_NAME=${STORAGE_BUCKET_NAME}
+      - API_KEY=${API_KEY}
       - PYTHONUNBUFFERED=1
+      - PORT=8080
     volumes:
       - ./:/app
       - worker_data:/data
-    healthcheck:
-      test: ["CMD", "celery", "-A", "tasks.worker_tasks", "inspect", "ping"]
-      interval: 180s
-      timeout: 120s
-      retries: 3
-      start_period: 40s
     restart: unless-stopped
 
 volumes:
