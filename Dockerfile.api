@@ -1,27 +1,30 @@
 # syntax=docker/dockerfile:1
 FROM python:3.11-slim AS base
 
-RUN apt-get update
+# 1) Install system GDAL libraries + any build tools you need
+RUN apt-get update && apt-get install -y \
+    gdal-bin \
+    libgdal-dev \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get install -y libgdal-dev
+# 2) Let pip-based builds find gdal-config
+ENV GDAL_CONFIG=/usr/bin/gdal-config
 
-RUN pip install GDAL==3.2.2.1
-
-# Set working directory
+# 3) Set working directory
 WORKDIR /app
 
-# Copy only requirements for caching
-COPY requirements.txt .
+# 4) Copy only requirements for caching
+COPY requirements.txt /app/requirements.txt
 
-# Install dependencies
+# 5) Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of your application code
+# 6) Copy the rest of your code
 COPY . .
 
-# Expose port 8080 (Cloud Run default)
+# 7) Expose port 8080 (Cloud Run default)
 EXPOSE 8080
 
-# Launch Gunicorn with Uvicorn workers
-# We assume your FastAPI "main:app" is in "main.py" at /app/main.py
+# 8) Final command - run gunicorn with Uvicorn workers
 CMD ["gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "main:app", "--bind", "0.0.0.0:${PORT}"]

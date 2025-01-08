@@ -1,16 +1,25 @@
 # syntax=docker/dockerfile:1
 FROM python:3.11-slim
 
+# 1) Install system GDAL libraries + any build tools you need
+RUN apt-get update && apt-get install -y \
+    gdal-bin \
+    libgdal-dev \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
+
+# Let pip-based builds find gdal-config
+ENV GDAL_CONFIG=/usr/bin/gdal-config
+
 WORKDIR /app
 
 # Copy only requirements
 COPY requirements.txt /app/requirements.txt
 
-# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of your code
-COPY . /app/
+COPY . .
 
 # Start Celery worker
 CMD ["celery", "-A", "tasks.worker_tasks", "worker", "--loglevel=info"]
