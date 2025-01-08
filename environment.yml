@@ -17,4 +17,8 @@ dependencies:
   - redis
   - requests
   - supabase
-  - uvicorn
+  - pip
+
+  - pip:
+      - gunicorn
+      - uvicorn
