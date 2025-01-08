@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sunlink-api-deployment
+  labels:
+    app: sunlink-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sunlink-api
+  template:
+    metadata:
+      labels:
+        app: sunlink-api
+    spec:
+      containers:
+      - name: sunlink-api
+        image: gcr.io/YOUR_PROJECT_ID/sunlink-api:latest
+        ports:
+          - containerPort: 8080
+        env:
+          - name: REDIS_URL
+            value: "YOUR_UPSTASH_REDIS_URL"
+          - name: SUPABASE_KEY
+            value: "YOUR_SUPABASE_KEY"
+          - name: SUPABASE_URL
+            value: "YOUR_SUPABASE_URL"
+          - name: STORAGE_BUCKET_NAME
+            value: "property-images"
+          - name: API_KEY
+            value: "YOUR_GOOGLE_SOLAR_API_KEY"

@@ -1,27 +1,20 @@
-# syntax=docker/dockerfile:1
-FROM python:3.12-alpine
+# Dockerfile for your Celery worker
+FROM python:3.12-slim-bullseye
 
-# 1) Install packages needed for gdal + proj + pyproj
-RUN apk upgrade --update && apk add --no-cache \
-    gdal \
-    gdal-dev \
-    proj \
-    proj-dev \
-    zlib-dev \
-    build-base \
-    gcc
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    gdal-bin libgdal-dev python3-gdal build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
+ENV C_INCLUDE_PATH=/usr/include/gdal
+ENV PROJ_DIR=/usr
 
 WORKDIR /app
 
-ENV PROJ_DIR=/usr
-
-# 2) Copy your requirements
 COPY requirements.txt /app/requirements.txt
-
-# 3) Install Python packages (including pyproj)
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 4) Copy the rest of your code
 COPY . .
 
 CMD ["celery", "-A", "tasks.worker_tasks", "worker", "--loglevel=info"]

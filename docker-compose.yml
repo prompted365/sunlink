@@ -6,42 +6,22 @@ services:
       context: .
       dockerfile: Dockerfile.api
     ports:
-      - "${PORT:-8080}:${PORT:-8080}"
-    env_file: .env
-    environment:
-      - REDIS_URL=${UPSTASH_REDIS_URL}
-      - SUPABASE_KEY=${SUPABASE_KEY}
-      - SUPABASE_URL=${SUPABASE_URL}
-      - STORAGE_BUCKET_NAME=${STORAGE_BUCKET_NAME}
-      - API_KEY=${API_KEY}
-      - PYTHONUNBUFFERED=1
-      - PORT=8080
+      - "8080:8080"
+    env_file:
+      - .env
     depends_on:
-      worker:
-        condition: service_started
-    volumes:
-      - ./:/app
-      - api_data:/data
-    restart: unless-stopped
+      - redis
 
   worker:
     build:
       context: .
       dockerfile: Dockerfile.worker
-    env_file: .env
-    environment:
-      - REDIS_URL=${UPSTASH_REDIS_URL}
-      - SUPABASE_KEY=${SUPABASE_KEY}
-      - SUPABASE_URL=${SUPABASE_URL}
-      - STORAGE_BUCKET_NAME=${STORAGE_BUCKET_NAME}
-      - API_KEY=${API_KEY}
-      - PYTHONUNBUFFERED=1
-      - PORT=8080
-    volumes:
-      - ./:/app
-      - worker_data:/data
-    restart: unless-stopped
+    env_file:
+      - .env
+    depends_on:
+      - redis
 
-volumes:
-  api_data:
-  worker_data:
+  redis:
+    image: redis:7.0-alpine
+    ports:
+      - "6379:6379"

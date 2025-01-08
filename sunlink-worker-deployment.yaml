@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sunlink-worker-deployment
+  labels:
+    app: sunlink-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sunlink-worker
+  template:
+    metadata:
+      labels:
+        app: sunlink-worker
+    spec:
+      containers:
+      - name: sunlink-worker
+        image: gcr.io/YOUR_PROJECT_ID/sunlink-worker:latest
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        env:
+          - name: REDIS_URL
+            value: "YOUR_UPSTASH_REDIS_URL"
+          - name: SUPABASE_KEY
+            value: "YOUR_SUPABASE_KEY"
+          - name: SUPABASE_URL
+            value: "YOUR_SUPABASE_URL"
+          - name: STORAGE_BUCKET_NAME
+            value: "property-images"
+          - name: API_KEY
+            value: "YOUR_GOOGLE_SOLAR_API_KEY"
