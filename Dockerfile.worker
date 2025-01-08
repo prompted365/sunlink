@@ -1,15 +1,12 @@
 # syntax=docker/dockerfile:1
-FROM python:3.11-slim
+FROM ghcr.io/andrii-rieznik/python-gdal:py3.11-gdal3.9.2
 
-# 1) Install system GDAL libraries + any build tools you need
-RUN apt-get update && apt-get install -y \
-    gdal-bin \
-    libgdal-dev \
-    gcc \
-    && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Let pip-based builds find gdal-config
-ENV GDAL_CONFIG=/usr/bin/gdal-config
+COPY . .
+CMD ["python", "main.py"]
 
 WORKDIR /app
 
