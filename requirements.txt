@@ -33,6 +33,7 @@ numpy==2.2.1
 packaging==24.2
 pillow==11.1.0
 postgrest==0.19.1
+proj
 prompt_toolkit==3.0.48
 propcache==0.2.1
 pydantic==2.10.4

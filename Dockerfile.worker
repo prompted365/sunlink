@@ -3,7 +3,7 @@
 FROM python:3.12-alpine@sha256:c157bce5e7d3a196f9f676f6f884ddb8567c395f941cc4bf8ce9adc92c9d16dd
 
 RUN apk upgrade --update && \
-    apk add --no-cache build-base gcc gdal gdal-dev zlib
+    apk add --no-cache build-base gcc gdal gdal-dev zlib libatlas-dev libatlas-base-dev gfortran
 
 ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
 ENV C_INCLUDE_PATH=/usr/include/gdal
