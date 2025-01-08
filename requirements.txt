@@ -19,7 +19,6 @@ cligj==0.7.2
 deprecation==2.1.0
 fastapi==0.115.6
 frozenlist==1.5.0
-GDAL==3.10.0
 gotrue==2.11.1
 gunicorn==23.0.0
 h11==0.14.0
@@ -35,16 +34,13 @@ numpy==2.2.1
 packaging==24.2
 pillow==11.1.0
 postgrest==0.19.1
-proj==0.2.0
 prompt_toolkit==3.0.48
 propcache==0.2.1
 pydantic==2.10.4
 pydantic_core==2.27.2
 pyparsing==3.2.1
-pyproj==3.7.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
-rasterio==1.4.3
 realtime==2.1.0
 redis==5.2.1
 requests==2.32.3
@@ -64,3 +60,6 @@ vine==5.1.0
 wcwidth==0.2.13
 websockets==13.1
 yarl==1.18.3
+GDAL==3.5.0
+pyproj==3.7.0
+rasterio==1.4.3
