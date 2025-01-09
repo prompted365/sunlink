@@ -18,10 +18,6 @@ spec:
       labels:
         app: sunlink-worker
     spec:
-      securityContext:
-        runAsUser: 1000
-        runAsGroup: 3000
-        fsGroup: 2000
       containers:
         - name: sunlink-worker
           image: gcr.io/solarflux-harmony/sunlink-worker:latest
