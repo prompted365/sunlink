@@ -1,20 +1,35 @@
-# Dockerfile for your Celery worker
+# Use the official Python slim image
 FROM python:3.10.16-slim-bookworm
 
+# Install necessary packages
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     gdal-bin libgdal-dev python3-gdal build-essential \
     && rm -rf /var/lib/apt/lists/*
 
+# Set environment variables
 ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
 ENV C_INCLUDE_PATH=/usr/include/gdal
 ENV PROJ_DIR=/usr
 
+# Create a non-root user and group
+RUN groupadd -r celery && useradd -r -g celery celery
+
+# Create and set working directory
 WORKDIR /app
 
+# Change ownership of the working directory to the non-root user
+RUN chown celery:celery /app
+
+# Copy the requirements file and install dependencies
 COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Copy the rest of the application
 COPY . .
 
+# Switch to the non-root user
+USER celery
+
+# Define the command to run the Celery worker
 CMD ["celery", "-A", "tasks.worker_tasks", "worker", "--loglevel=info"]
