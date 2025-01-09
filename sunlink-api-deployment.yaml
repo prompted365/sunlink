@@ -5,8 +5,8 @@ metadata:
   labels:
     app: sunlink-api
   annotations:
-    prometheus.io/scrape: "true"  # Enable Prometheus scraping
-    prometheus.io/port: "8080"   # Prometheus metrics port
+    prometheus.io/scrape: "true" # Enable Prometheus scraping
+    prometheus.io/port: "8080" # Prometheus metrics port
 spec:
   selector:
     matchLabels:
