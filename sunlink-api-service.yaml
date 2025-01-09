@@ -7,7 +7,6 @@ metadata:
     tier: backend
   annotations:
     networking.gke.io/load-balancer-type: "External"  # Use "Internal" for private traffic
-    cloud.google.com/load-balancer-ip: "STATIC_IP_ADDRESS"
 spec:
   type: LoadBalancer
   selector:

@@ -28,11 +28,11 @@ spec:
         image: gcr.io/solarflux-harmony/sunlink-worker:latest
         resources:
           requests:
-            memory: "256Mi"
-            cpu: "250m"
+            memory: "1Gi"
+            cpu: "1"
           limits:
-            memory: "512Mi"
-            cpu: "500m"
+            memory: "2Gi"
+            cpu: "2"
         env:
           - name: REDIS_URL
             valueFrom:
