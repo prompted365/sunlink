@@ -1,26 +1,37 @@
-# Dockerfile for your FastAPI-based API
+# Base image: Use slim version of Python 3.10 for a smaller image
 FROM python:3.10.16-slim-bookworm
 
-# Install system packages for GDAL, PROJ, etc.
+# Install system dependencies required for GDAL, PROJ, etc.
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     gdal-bin libgdal-dev python3-gdal build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Env vars to help pyproj/GDAL
+# Environment variables to configure GDAL and PROJ paths
 ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
 ENV C_INCLUDE_PATH=/usr/include/gdal
 ENV PROJ_DIR=/usr
 
+# Create a non-root user
+RUN groupadd -r appuser && useradd -r -g appuser appuser
+
+# Set the working directory
 WORKDIR /app
 
-# Copy requirements and install
+# Copy dependencies file and install Python dependencies
 COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy all code
+# Copy the application code
 COPY . .
 
+# Change ownership of the application directory to the non-root user
+RUN chown -R appuser:appuser /app
+
+# Switch to the non-root user
+USER appuser
+
+# Expose the application port
 EXPOSE 8080
 
 # Run Gunicorn with Uvicorn workers
