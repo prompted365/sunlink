@@ -2,11 +2,19 @@ apiVersion: v1
 kind: Service
 metadata:
   name: sunlink-api-service
+  labels:
+    app: sunlink-api
+    tier: backend
+  annotations:
+    networking.gke.io/load-balancer-type: "External"  # Use "Internal" for private traffic
+    cloud.google.com/load-balancer-ip: "STATIC_IP_ADDRESS"
 spec:
   type: LoadBalancer
   selector:
     app: sunlink-api
   ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       port: 80
       targetPort: 8080
+  sessionAffinity: None  # Or "ClientIP" if sticky sessions are required
