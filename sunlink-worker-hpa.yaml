@@ -13,7 +13,8 @@ spec:
   metrics:
     - type: External
       external:
-        metricName: task_queue_depth
+        metric:
+          name: task_queue_depth
         target:
           type: AverageValue
           averageValue: "5"
