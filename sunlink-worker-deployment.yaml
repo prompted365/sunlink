@@ -5,7 +5,6 @@ metadata:
   labels:
     app: sunlink-worker
 spec:
-  replicas: 2
   selector:
     matchLabels:
       app: sunlink-worker
@@ -24,52 +23,45 @@ spec:
         runAsGroup: 3000
         fsGroup: 2000
       containers:
-      - name: sunlink-worker
-        image: gcr.io/solarflux-harmony/sunlink-worker:latest
-        resources:
-          requests:
-            memory: "1Gi"
-            cpu: "1"
-          limits:
-            memory: "2Gi"
-            cpu: "2"
-        env:
-          - name: REDIS_URL
-            valueFrom:
-              secretKeyRef:
-                name: sunlink-worker-secrets
-                key: REDIS_URL
-          - name: SUPABASE_KEY
-            valueFrom:
-              secretKeyRef:
-                name: sunlink-worker-secrets
-                key: SUPABASE_KEY
-          - name: SUPABASE_URL
-            valueFrom:
-              secretKeyRef:
-                name: sunlink-worker-secrets
-                key: SUPABASE_URL
-          - name: STORAGE_BUCKET_NAME
-            valueFrom:
-              secretKeyRef:
-                name: sunlink-worker-secrets
-                key: STORAGE_BUCKET_NAME
-          - name: API_KEY
-            valueFrom:
-              secretKeyRef:
-                name: sunlink-worker-secrets
-                key: API_KEY
-        readinessProbe:
-          exec:
-            command:
-              - cat
-              - /tmp/healthy
-          initialDelaySeconds: 5
-          periodSeconds: 10
-        livenessProbe:
-          exec:
-            command:
-              - cat
-              - /tmp/healthy
-          initialDelaySeconds: 10
-          periodSeconds: 10
+        - name: sunlink-worker
+          image: gcr.io/solarflux-harmony/sunlink-worker:latest
+          env:
+            - name: REDIS_URL
+              valueFrom:
+                secretKeyRef:
+                  name: sunlink-worker-secrets
+                  key: REDIS_URL
+            - name: SUPABASE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: sunlink-worker-secrets
+                  key: SUPABASE_KEY
+            - name: SUPABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: sunlink-worker-secrets
+                  key: SUPABASE_URL
+            - name: STORAGE_BUCKET_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: sunlink-worker-secrets
+                  key: STORAGE_BUCKET_NAME
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: sunlink-worker-secrets
+                  key: API_KEY
+          readinessProbe:
+            exec:
+              command:
+                - cat
+                - /tmp/healthy
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            exec:
+              command:
+                - cat
+                - /tmp/healthy
+            initialDelaySeconds: 10
+            periodSeconds: 10

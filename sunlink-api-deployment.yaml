@@ -5,10 +5,9 @@ metadata:
   labels:
     app: sunlink-api
   annotations:
-    prometheus.io/scrape: "true"
-    prometheus.io/port: "8080"
+    prometheus.io/scrape: "true"  # Enable Prometheus scraping
+    prometheus.io/port: "8080"   # Prometheus metrics port
 spec:
-  replicas: 2
   selector:
     matchLabels:
       app: sunlink-api
@@ -22,57 +21,46 @@ spec:
       labels:
         app: sunlink-api
     spec:
-      securityContext:
-        runAsUser: 1000
-        runAsGroup: 3000
-        fsGroup: 2000
       containers:
-      - name: sunlink-api
-        image: gcr.io/solarflux-harmony/sunlink-api:latest
-        ports:
-          - containerPort: 8080
-        env:
-          - name: REDIS_URL
-            valueFrom:
-              secretKeyRef:
-                name: sunlink-api-secrets
-                key: REDIS_URL
-          - name: SUPABASE_KEY
-            valueFrom:
-              secretKeyRef:
-                name: sunlink-api-secrets
-                key: SUPABASE_KEY
-          - name: SUPABASE_URL
-            valueFrom:
-              secretKeyRef:
-                name: sunlink-api-secrets
-                key: SUPABASE_URL
-          - name: STORAGE_BUCKET_NAME
-            valueFrom:
-              secretKeyRef:
-                name: sunlink-api-secrets
-                key: STORAGE_BUCKET_NAME
-          - name: API_KEY
-            valueFrom:
-              secretKeyRef:
-                name: sunlink-api-secrets
-                key: API_KEY
-        resources:
-          requests:
-            memory: "512Mi"
-            cpu: "500m"
-          limits:
-            memory: "1Gi"
-            cpu: "1"
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: 8080
-          initialDelaySeconds: 5
-          periodSeconds: 10
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 8080
-          initialDelaySeconds: 10
-          periodSeconds: 10
+        - name: sunlink-api
+          image: gcr.io/solarflux-harmony/sunlink-api:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: REDIS_URL
+              valueFrom:
+                secretKeyRef:
+                  name: sunlink-api-secrets
+                  key: REDIS_URL
+            - name: SUPABASE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: sunlink-api-secrets
+                  key: SUPABASE_KEY
+            - name: SUPABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: sunlink-api-secrets
+                  key: SUPABASE_URL
+            - name: STORAGE_BUCKET_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: sunlink-api-secrets
+                  key: STORAGE_BUCKET_NAME
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: sunlink-api-secrets
+                  key: API_KEY
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
