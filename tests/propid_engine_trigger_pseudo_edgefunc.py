@@ -2,7 +2,7 @@ import requests
 import json
 
 # Define the URL and the payload
-url = "http://localhost:8000/process"
+url = "http://34.42.180.52/process"
 payload = {
     "property_id": "26002082-e74a-47fb-96f8-e0484acec0d6"
 }
