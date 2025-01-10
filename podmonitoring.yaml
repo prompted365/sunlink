@@ -1,0 +1,13 @@
+apiVersion: monitoring.googleapis.com/v1
+kind: PodMonitoring
+metadata:
+  name: sunlink-metrics
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: sunlink-metrics-server
+  endpoints:
+    - port: 8000
+      interval: 240s  # Reduce scraping frequency
+      path: /metrics
