@@ -22,33 +22,26 @@ spec:
         app: sunlink-api
     spec:
       containers:
-        - name: sunlink-api
-          image: gcr.io/solarflux-harmony/sunlink-api:latest
+        - name: sunlink-api-container
+          image: your-image:latest
           ports:
             - containerPort: 8080
-          env:
-            - name: REDIS_URL
-              valueFrom:
-                secretKeyRef:
-                  name: sunlink-api-secrets
-                  key: REDIS_URL
-            - name: SUPABASE_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: sunlink-api-secrets
-                  key: SUPABASE_KEY
-            - name: SUPABASE_URL
-              valueFrom:
-                secretKeyRef:
-                  name: sunlink-api-secrets
-                  key: SUPABASE_URL
-            - name: STORAGE_BUCKET_NAME
-              valueFrom:
-                secretKeyRef:
-                  name: sunlink-api-secrets
-                  key: STORAGE_BUCKET_NAME
-            - name: API_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: sunlink-api-secrets
-                  key: API_KEY
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+            requests:
+              cpu: "200m"
+              memory: "128Mi"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
