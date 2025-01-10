@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: sunlink-api-container
-          image: your-image:latest
+          image: gcr.io/solarflux-harmony/sunlink-api:latest
           ports:
             - containerPort: 8080
           resources:

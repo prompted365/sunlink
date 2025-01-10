@@ -60,3 +60,7 @@ deprec_scratch_front_end_approach/
 deprec_scratch_front_end_approach/
 deprec_javascript_approach/
 notes/
+
+all-configmaps.yaml
+all-resources.yaml
+all-secrets.yaml
