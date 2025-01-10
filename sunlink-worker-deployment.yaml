@@ -22,11 +22,11 @@ spec:
         - name: sunlink-worker
           image: gcr.io/solarflux-harmony/sunlink-worker:latest
           env:
-            - name: REDIS_URL
+            - name: UPSTASH_BROKER_URL
               valueFrom:
                 secretKeyRef:
                   name: sunlink-worker-secrets
-                  key: REDIS_URL
+                  key: UPSTASH_BROKER_URL
             - name: SUPABASE_KEY
               valueFrom:
                 secretKeyRef:
@@ -48,16 +48,14 @@ spec:
                   name: sunlink-worker-secrets
                   key: API_KEY
           readinessProbe:
-            exec:
-              command:
-                - cat
-                - /tmp/healthy
+            httpGet:
+              path: /healthz
+              port: 8080
             initialDelaySeconds: 5
             periodSeconds: 10
           livenessProbe:
-            exec:
-              command:
-                - cat
-                - /tmp/healthy
+            httpGet:
+              path: /healthz
+              port: 8080
             initialDelaySeconds: 10
             periodSeconds: 10

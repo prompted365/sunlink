@@ -43,20 +43,3 @@ spec:
               port: 8000
             initialDelaySeconds: 15
             periodSeconds: 10
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: sunlink-metrics-server
-  namespace: default
-  annotations:
-    prometheus.io/scrape: "true"  # Enable Prometheus scraping
-    prometheus.io/port: "8000"    # Specify the port for scraping
-spec:
-  selector:
-    app: sunlink-metrics-server
-  ports:
-    - protocol: TCP
-      port: 8000
-      targetPort: 8000
-  type: ClusterIP
