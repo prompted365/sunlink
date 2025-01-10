@@ -17,4 +17,4 @@ spec:
           name: task_queue_depth
         target:
           type: AverageValue
-          averageValue: "5"
+          averageValue: 5
