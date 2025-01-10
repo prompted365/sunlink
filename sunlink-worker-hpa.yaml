@@ -10,11 +10,3 @@ spec:
     name: sunlink-worker-deployment
   minReplicas: 1
   maxReplicas: 10
-  metrics:
-    - type: External
-      external:
-        metric:
-          name: task_queue_depth
-        target:
-          type: AverageValue
-          averageValue: 3
