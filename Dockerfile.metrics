@@ -8,7 +8,7 @@ WORKDIR /app
 COPY metrics /app/metrics
 
 # Install Prometheus client library
-RUN pip install prometheus-client
+RUN pip install prometheus-client redis
 
 # Expose the Prometheus metrics port
 EXPOSE 8000
