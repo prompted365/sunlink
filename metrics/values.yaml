@@ -1,0 +1,11 @@
+rules:
+  custom:
+    - seriesQuery: 'task_queue_depth'
+      resources:
+        overrides:
+          namespace:
+            resource: "namespace"
+      name:
+        matches: "task_queue_depth"
+        as: "task_queue_depth"
+      metricsQuery: 'task_queue_depth'

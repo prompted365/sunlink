@@ -8,7 +8,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: sunlink-worker-deployment
-  minReplicas: 0
+  minReplicas: 1
   maxReplicas: 10
   metrics:
     - type: External
@@ -17,4 +17,4 @@ spec:
           name: task_queue_depth
         target:
           type: AverageValue
-          averageValue: 5
+          averageValue: 3

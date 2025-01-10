@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-BROKER_URL = os.getenv("UPSTASH_REDIS_URL") or os.getenv("REDIS_URL")
+BROKER_URL = os.getenv("UPSTASH_BROKER_URL")
 BACKEND_URL = BROKER_URL
 
 celery_app = Celery("Sunlink Celery", broker=BROKER_URL, backend=BACKEND_URL)
