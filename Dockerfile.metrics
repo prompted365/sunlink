@@ -1,0 +1,17 @@
+# Use the official Python slim image
+FROM python:3.10.16-slim-bookworm
+
+# Set working directory
+WORKDIR /app
+
+# Copy the `metrics` directory into the container
+COPY metrics /app/metrics
+
+# Install dependencies
+RUN pip install prometheus-client
+
+# Expose the metrics port
+EXPOSE 8000
+
+# Run the script
+CMD ["python", "/app/metrics/metrics_server.py"]
