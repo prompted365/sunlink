@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: sunlink-worker
-          image: gcr.io/solarflux-harmony/sunlink-worker:latest
+          image: us-central1-docker.pkg.dev/solarflux-harmony/sunlinkai-artifacts/sunlink-worker:latest
           env:
             - name: UPSTASH_BROKER_URL
               valueFrom:
