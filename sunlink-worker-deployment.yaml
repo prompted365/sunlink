@@ -25,27 +25,27 @@ spec:
             - name: UPSTASH_BROKER_URL
               valueFrom:
                 secretKeyRef:
-                  name: sunlink-worker-secrets
+                  name: sunlinkai-secrets
                   key: UPSTASH_BROKER_URL
             - name: SUPABASE_KEY
               valueFrom:
                 secretKeyRef:
-                  name: sunlink-worker-secrets
+                  name: sunlinkai-secrets
                   key: SUPABASE_KEY
             - name: SUPABASE_URL
               valueFrom:
                 secretKeyRef:
-                  name: sunlink-worker-secrets
+                  name: sunlinkai-secrets
                   key: SUPABASE_URL
             - name: STORAGE_BUCKET_NAME
               valueFrom:
                 secretKeyRef:
-                  name: sunlink-worker-secrets
+                  name: sunlinkai-secrets
                   key: STORAGE_BUCKET_NAME
             - name: API_KEY
               valueFrom:
                 secretKeyRef:
-                  name: sunlink-worker-secrets
+                  name: sunlinkai-secrets
                   key: API_KEY
           resources:
             requests:

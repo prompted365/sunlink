@@ -23,4 +23,6 @@ docker buildx build \
   --push \
   .
 
+
+
 echo "Docker images pushed to Artifact Registry successfully!"
