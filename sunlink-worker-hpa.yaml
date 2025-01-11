@@ -6,7 +6,7 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: sunlink-api-deployment
+    name: sunlink-worker-deployment
   minReplicas: 2
   maxReplicas: 10
   metrics:
