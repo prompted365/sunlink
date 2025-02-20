@@ -3,7 +3,7 @@ from fastapi import FastAPI, APIRouter
 import os
 from fastapi import APIRouter
 from pydantic import BaseModel
-from tasks.worker_tasks import process_solar_task
+from tasks.fast_worker_tasks import process_solar_task
 
 # Create the main FastAPI app
 app = FastAPI(title="Sunlink AI Engine")

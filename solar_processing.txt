@@ -1,0 +1,282 @@
+2025-02-18 03:55:00,800 - INFO - Starting process_solar_task for property_id=8844ccd4-518c-457d-8886-120e0f32c90c
+2025-02-18 03:55:01,010 - INFO - Retrieved property for 8844ccd4-518c-457d-8886-120e0f32c90c.
+2025-02-18 03:55:01,112 - INFO - Starting solar data processing.
+2025-02-18 03:55:01,122 - INFO - Fetching building insights and data layers...
+2025-02-18 03:55:01,868 - INFO - Fetched building insights and data layers.
+2025-02-18 03:55:01,868 - INFO - Started monthly flux data download.
+2025-02-18 03:55:03,534 - INFO - Downloaded subset from https://solar.googleapis.com/v1/geoTiff:get?id=ZDA1N2QxN2ZlOWVmYTYzYWRkYzZkNWJjOTU2Y2IwOTItODU2YmVmMjI4YzNiMTBhOGNiZjlhZmY2NTFjYjc5Y2M6TU9OVEhMWV9GTFVYOkhJR0g&key=AIzaSyBEiZHGiOpjBQxi1uqNkRR8xT_cWDW_aiw in 1.66s.
+2025-02-18 03:55:03,641 - INFO - Downloaded subset from https://solar.googleapis.com/v1/geoTiff:get?id=NDYwNjYzZWZjZWU2MWQ0MzBjYjZhYzNhYjhlNzVjY2QtMDViNTBiMWJmZWUwYzM2YzYxYzhjNGU3YmJhZTJlZTc6TUFTSzpISUdI&key=AIzaSyBEiZHGiOpjBQxi1uqNkRR8xT_cWDW_aiw in 1.77s.
+2025-02-18 03:55:03,645 - INFO - Created mask image in 0.00s.
+2025-02-18 03:55:04,113 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/mask_1739879703662.png
+2025-02-18 03:55:06,578 - INFO - Downloaded subset from https://solar.googleapis.com/v1/geoTiff:get?id=Y2QxOTlmNjBiMTRlMWMzZDllZDg1NTVmY2FjNDkyMmMtNTQzY2IyYjNkZDI1ZTI1M2ZmZTg4MmUwNTk1ZThhNzg6UkdCOkhJR0g&key=AIzaSyBEiZHGiOpjBQxi1uqNkRR8xT_cWDW_aiw in 4.71s.
+2025-02-18 03:55:06,580 - INFO - Created RGB image in 0.00s.
+2025-02-18 03:55:06,885 - INFO - Downloaded subset from https://solar.googleapis.com/v1/geoTiff:get?id=MjdlMTE4YmRmYTFkZmE1ZTBlYmRhNGQ2MDcwNTQ3MDQtZDU5MjAzNjM2NDg3YTcwYzI0Njk0MmM4ODhmYjkwZmQ6QU5OVUFMX0ZMVVg6SElHSA&key=AIzaSyBEiZHGiOpjBQxi1uqNkRR8xT_cWDW_aiw in 5.02s.
+2025-02-18 03:55:06,895 - INFO - Applied color ramp in 0.01s.
+2025-02-18 03:55:07,173 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/rgb_1739879706604.png
+2025-02-18 03:55:07,363 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/flux_1739879706914.png
+2025-02-18 03:55:11,094 - INFO - Downloaded subset from https://solar.googleapis.com/v1/geoTiff:get?id=Y2M3ODdmOTUzOTVkYjQ3YTcxZDUzMmMyYTA5ZGMwZTUtNmY2MTgzYjlhYzg1YzAyNTNlOGVlMzNkYWVmMzBlMTY6RFNNOkhJR0g&key=AIzaSyBEiZHGiOpjBQxi1uqNkRR8xT_cWDW_aiw in 9.23s.
+2025-02-18 03:55:11,104 - INFO - Applied color ramp in 0.01s.
+2025-02-18 03:55:11,362 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/dsm_1739879711115.png
+2025-02-18 03:55:11,362 - INFO - Monthly flux data downloaded.
+2025-02-18 03:55:11,363 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:55:11,364 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:55:11,365 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:55:11,365 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:55:11,366 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:55:11,366 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:55:11,367 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:55:11,368 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:55:11,368 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:55:11,369 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:55:11,370 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:55:11,370 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:55:11,371 - INFO - Created 12 monthly flux images in 0.01s.
+2025-02-18 03:55:11,391 - INFO - Reprojected raster in 0.01s.
+2025-02-18 03:55:11,438 - INFO - Reprojected raster in 0.06s.
+2025-02-18 03:55:11,481 - INFO - Applied color ramp in 0.04s.
+2025-02-18 03:55:11,482 - INFO - Applied color ramp in 0.04s.
+2025-02-18 03:55:11,485 - INFO - Applied color ramp in 0.04s.
+2025-02-18 03:55:11,487 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:55:11,487 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:55:11,490 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:55:11,490 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:55:11,491 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:55:11,492 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:55:11,492 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:55:11,494 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:55:11,494 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:55:11,625 - INFO - Composite flux completed in 0.14s.
+2025-02-18 03:55:11,640 - INFO - Composite flux completed in 0.15s.
+2025-02-18 03:55:11,654 - INFO - Composite flux completed in 0.16s.
+2025-02-18 03:55:11,655 - INFO - Composite flux completed in 0.16s.
+2025-02-18 03:55:11,661 - INFO - Composite flux completed in 0.17s.
+2025-02-18 03:55:11,664 - INFO - Composite flux completed in 0.15s.
+2025-02-18 03:55:11,664 - INFO - Composite flux completed in 0.16s.
+2025-02-18 03:55:11,665 - INFO - Composite flux completed in 0.16s.
+2025-02-18 03:55:11,665 - INFO - Composite flux completed in 0.15s.
+2025-02-18 03:55:11,667 - INFO - Composite flux completed in 0.15s.
+2025-02-18 03:55:11,667 - INFO - Composite flux completed in 0.16s.
+2025-02-18 03:55:11,670 - INFO - Composite flux completed in 0.15s.
+2025-02-18 03:55:12,560 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_1739879712010.gif
+2025-02-18 03:55:12,952 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_10_1739879711377.png
+2025-02-18 03:55:12,991 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_3_1739879711373.png
+2025-02-18 03:55:12,992 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_1_1739879711371.png
+2025-02-18 03:55:12,992 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_5_1739879711374.png
+2025-02-18 03:55:12,992 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_6_1739879711375.png
+2025-02-18 03:55:13,015 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_2_1739879711372.png
+2025-02-18 03:55:13,015 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_7_1739879711375.png
+2025-02-18 03:55:13,015 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_11_1739879711378.png
+2025-02-18 03:55:13,038 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_4_1739879711373.png
+2025-02-18 03:55:13,039 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_8_1739879711376.png
+2025-02-18 03:55:13,039 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_12_1739879711379.png
+2025-02-18 03:55:13,040 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_9_1739879711377.png
+2025-02-18 03:55:13,442 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_8_1739879711835.png
+2025-02-18 03:55:13,484 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_11_1739879711900.png
+2025-02-18 03:55:13,485 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_6_1739879711791.png
+2025-02-18 03:55:13,527 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_7_1739879711813.png
+2025-02-18 03:55:13,528 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_9_1739879711856.png
+2025-02-18 03:55:13,528 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_1_1739879711681.png
+2025-02-18 03:55:13,599 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_5_1739879711770.png
+2025-02-18 03:55:13,651 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_4_1739879711748.png
+2025-02-18 03:55:13,652 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_2_1739879711704.png
+2025-02-18 03:55:13,652 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_12_1739879711921.png
+2025-02-18 03:55:13,653 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_10_1739879711878.png
+2025-02-18 03:55:13,653 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_3_1739879711726.png
+2025-02-18 03:55:13,658 - INFO - Reprojected raster in 0.01s.
+2025-02-18 03:55:13,660 - INFO - Reprojected raster in 0.01s.
+2025-02-18 03:55:13,668 - INFO - Applied color ramp in 0.01s.
+2025-02-18 03:55:13,684 - INFO - Composite flux completed in 0.01s.
+2025-02-18 03:55:14,077 - INFO - Uploaded: 8844ccd4-518c-457d-8886-120e0f32c90c/FluxOverRGB_1739879713707.png
+2025-02-18 03:55:14,078 - INFO - Solar data processing completed in 12.97s.
+2025-02-18 03:55:14,080 - INFO - Solar data processed.
+2025-02-18 03:55:14,080 - INFO - Final update (shortened): {'status': 'completed', 'DSM': 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/dsm_1739879711115.png', 'RGB': 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/rgb_1739879706604.png', 'Mask': 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/mask_1739879703662.png', 'AnnualFlux': 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/flux_1739879706914.png', 'FluxOverRGB': 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/FluxOverRGB_1739879713707.png', 'MonthlyFluxCompositeGIF': 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_1739879712010.gif', 'MonthlyFlux12': ['https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_1_1739879711371.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_2_1739879711372.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_3_1739879711373.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_4_1739879711373.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_5_1739879711374.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_6_1739879711375.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_7_1739879711375.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_8_1739879711376.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_9_1739879711377.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_10_1739879711377.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_11_1739879711378.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFlux_12_1739879711379.png'], 'MonthlyFluxComposites': ['https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_1_1739879711681.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_2_1739879711704.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_3_1739879711726.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_4_1739879711748.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_5_1739879711770.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_6_1739879711791.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_7_1739879711813.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_8_1739879711835.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_9_1739879711856.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_10_1739879711878.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_11_1739879711900.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/8844ccd4-518c-457d-8886-120e0f32c90c/MonthlyFluxComposite_12_1739879711921.png']}
+2025-02-18 03:55:14,338 - INFO - Property record updated.
+2025-02-18 03:55:14,339 - INFO - Completed process_solar_task for 8844ccd4-518c-457d-8886-120e0f32c90c in 13.54 seconds
+2025-02-18 03:55:32,166 - INFO - Starting process_solar_task for property_id=5ec66244-4600-48c8-bb9e-7554b58d7da1
+2025-02-18 03:55:32,287 - INFO - Retrieved property for 5ec66244-4600-48c8-bb9e-7554b58d7da1.
+2025-02-18 03:55:32,375 - INFO - Starting solar data processing.
+2025-02-18 03:55:32,385 - INFO - Fetching building insights and data layers...
+2025-02-18 03:55:33,342 - INFO - Fetched building insights and data layers.
+2025-02-18 03:55:33,342 - INFO - Started monthly flux data download.
+2025-02-18 03:55:37,560 - INFO - Downloaded subset from https://solar.googleapis.com/v1/geoTiff:get?id=NmJkMWRmNDI0NDQ3MzFlNGZhMjZkMzQ4YzkwY2NlZDktODljNzQ3NTQzNGQ4N2UzNTRiNzIxMzgzNGQ2MjdiMzg6TUFTSzpISUdI&key=AIzaSyBEiZHGiOpjBQxi1uqNkRR8xT_cWDW_aiw in 4.22s.
+2025-02-18 03:55:37,563 - INFO - Created mask image in 0.00s.
+2025-02-18 03:55:37,841 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/mask_1739879737568.png
+2025-02-18 03:55:39,434 - INFO - Downloaded subset from https://solar.googleapis.com/v1/geoTiff:get?id=YThjOWNmMDUyMzBmYWE0ZDJlNTJmYjMyZjg1YjIzZGItYjlmYWI1NmI1NTUxM2E3Y2JjNTQ4NTIxYjU1MWZjZTI6RFNNOkhJR0g&key=AIzaSyBEiZHGiOpjBQxi1uqNkRR8xT_cWDW_aiw in 6.09s.
+2025-02-18 03:55:39,443 - INFO - Applied color ramp in 0.01s.
+2025-02-18 03:55:39,714 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/dsm_1739879739458.png
+2025-02-18 03:55:40,201 - INFO - Downloaded subset from https://solar.googleapis.com/v1/geoTiff:get?id=Njg5MDQyZjNkMDg1NWJmYjlmODliOGYwMjUwNjAzNjQtMjQ0Y2YyYmE1M2FhNjFhNDJjM2NhYzVkMjcyZGVlNTA6UkdCOkhJR0g&key=AIzaSyBEiZHGiOpjBQxi1uqNkRR8xT_cWDW_aiw in 6.86s.
+2025-02-18 03:55:40,203 - INFO - Created RGB image in 0.00s.
+2025-02-18 03:55:40,591 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/rgb_1739879740222.png
+2025-02-18 03:55:41,961 - INFO - Downloaded subset from https://solar.googleapis.com/v1/geoTiff:get?id=MzRiYjZmMjQ5OGMxNGI3MmQzMzQ3YjY3ZDViMzdjZGEtNjU0MTQ3OGM1MmIzNTBmODAwYzQyNTZkYjllMTZhYWY6TU9OVEhMWV9GTFVYOkhJR0g&key=AIzaSyBEiZHGiOpjBQxi1uqNkRR8xT_cWDW_aiw in 8.62s.
+2025-02-18 03:56:07,927 - INFO - Downloaded subset from https://solar.googleapis.com/v1/geoTiff:get?id=ODJlNzEzMzhmZGQ2ODU2NjY2MDdlMWRjMTI1NGNmZjMtZjk0MjU1YTJkM2RjZDkyZWZkMGI5MmQ5MDhjNDJlOGI6QU5OVUFMX0ZMVVg6SElHSA&key=AIzaSyBEiZHGiOpjBQxi1uqNkRR8xT_cWDW_aiw in 34.58s.
+2025-02-18 03:56:07,938 - INFO - Applied color ramp in 0.01s.
+2025-02-18 03:56:08,355 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/flux_1739879767961.png
+2025-02-18 03:56:08,355 - INFO - Monthly flux data downloaded.
+2025-02-18 03:56:08,356 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:08,357 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:08,358 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:08,359 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:08,360 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:08,361 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:08,361 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:08,362 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:08,363 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:08,363 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:08,364 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:08,365 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:08,365 - INFO - Created 12 monthly flux images in 0.01s.
+2025-02-18 03:56:08,384 - INFO - Reprojected raster in 0.01s.
+2025-02-18 03:56:08,433 - INFO - Reprojected raster in 0.06s.
+2025-02-18 03:56:08,475 - INFO - Applied color ramp in 0.04s.
+2025-02-18 03:56:08,480 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:56:08,481 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:56:08,483 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:56:08,483 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:56:08,483 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:56:08,484 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:56:08,485 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:56:08,485 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:56:08,486 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:56:08,486 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:56:08,489 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:56:08,608 - INFO - Composite flux completed in 0.13s.
+2025-02-18 03:56:08,640 - INFO - Composite flux completed in 0.15s.
+2025-02-18 03:56:08,649 - INFO - Composite flux completed in 0.16s.
+2025-02-18 03:56:08,649 - INFO - Composite flux completed in 0.16s.
+2025-02-18 03:56:08,650 - INFO - Composite flux completed in 0.15s.
+2025-02-18 03:56:08,651 - INFO - Composite flux completed in 0.17s.
+2025-02-18 03:56:08,652 - INFO - Composite flux completed in 0.15s.
+2025-02-18 03:56:08,656 - INFO - Composite flux completed in 0.16s.
+2025-02-18 03:56:08,662 - INFO - Composite flux completed in 0.17s.
+2025-02-18 03:56:08,663 - INFO - Composite flux completed in 0.17s.
+2025-02-18 03:56:08,663 - INFO - Composite flux completed in 0.15s.
+2025-02-18 03:56:08,665 - INFO - Composite flux completed in 0.15s.
+2025-02-18 03:56:09,303 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_1739879768948.gif
+2025-02-18 03:56:09,681 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_3_1739879768367.png
+2025-02-18 03:56:09,800 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_2_1739879768366.png
+2025-02-18 03:56:09,803 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_8_1739879768371.png
+2025-02-18 03:56:09,803 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_9_1739879768372.png
+2025-02-18 03:56:09,803 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_10_1739879768372.png
+2025-02-18 03:56:09,804 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_11_1739879768373.png
+2025-02-18 03:56:09,804 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_12_1739879768374.png
+2025-02-18 03:56:09,804 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_4_1739879768368.png
+2025-02-18 03:56:09,804 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_1_1739879768365.png
+2025-02-18 03:56:09,863 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_5_1739879768369.png
+2025-02-18 03:56:09,864 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_7_1739879768370.png
+2025-02-18 03:56:09,865 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_6_1739879768369.png
+2025-02-18 03:56:10,267 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_11_1739879768849.png
+2025-02-18 03:56:10,340 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_3_1739879768710.png
+2025-02-18 03:56:10,493 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_8_1739879768798.png
+2025-02-18 03:56:10,501 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_7_1739879768781.png
+2025-02-18 03:56:10,501 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_1_1739879768675.png
+2025-02-18 03:56:10,502 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_6_1739879768764.png
+2025-02-18 03:56:10,502 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_12_1739879768867.png
+2025-02-18 03:56:10,552 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_4_1739879768728.png
+2025-02-18 03:56:10,599 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_5_1739879768746.png
+2025-02-18 03:56:10,599 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_10_1739879768832.png
+2025-02-18 03:56:10,600 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_2_1739879768693.png
+2025-02-18 03:56:10,600 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_9_1739879768815.png
+2025-02-18 03:56:10,608 - INFO - Reprojected raster in 0.01s.
+2025-02-18 03:56:10,609 - INFO - Reprojected raster in 0.01s.
+2025-02-18 03:56:10,617 - INFO - Applied color ramp in 0.01s.
+2025-02-18 03:56:10,632 - INFO - Composite flux completed in 0.01s.
+2025-02-18 03:56:10,915 - INFO - Uploaded: 5ec66244-4600-48c8-bb9e-7554b58d7da1/FluxOverRGB_1739879770651.png
+2025-02-18 03:56:10,915 - INFO - Solar data processing completed in 38.54s.
+2025-02-18 03:56:10,919 - INFO - Solar data processed.
+2025-02-18 03:56:10,920 - INFO - Final update (shortened): {'status': 'completed', 'DSM': 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/dsm_1739879739458.png', 'RGB': 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/rgb_1739879740222.png', 'Mask': 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/mask_1739879737568.png', 'AnnualFlux': 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/flux_1739879767961.png', 'FluxOverRGB': 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/FluxOverRGB_1739879770651.png', 'MonthlyFluxCompositeGIF': 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_1739879768948.gif', 'MonthlyFlux12': ['https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_1_1739879768365.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_2_1739879768366.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_3_1739879768367.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_4_1739879768368.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_5_1739879768369.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_6_1739879768369.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_7_1739879768370.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_8_1739879768371.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_9_1739879768372.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_10_1739879768372.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_11_1739879768373.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFlux_12_1739879768374.png'], 'MonthlyFluxComposites': ['https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_1_1739879768675.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_2_1739879768693.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_3_1739879768710.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_4_1739879768728.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_5_1739879768746.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_6_1739879768764.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_7_1739879768781.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_8_1739879768798.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_9_1739879768815.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_10_1739879768832.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_11_1739879768849.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/5ec66244-4600-48c8-bb9e-7554b58d7da1/MonthlyFluxComposite_12_1739879768867.png']}
+2025-02-18 03:56:11,139 - INFO - Property record updated.
+2025-02-18 03:56:11,139 - INFO - Completed process_solar_task for 5ec66244-4600-48c8-bb9e-7554b58d7da1 in 38.97 seconds
+2025-02-18 03:56:34,164 - INFO - Starting process_solar_task for property_id=26002082-e74a-47fb-96f8-e0484acec0d6
+2025-02-18 03:56:34,304 - INFO - Retrieved property for 26002082-e74a-47fb-96f8-e0484acec0d6.
+2025-02-18 03:56:34,411 - INFO - Starting solar data processing.
+2025-02-18 03:56:34,421 - INFO - Fetching building insights and data layers...
+2025-02-18 03:56:35,239 - INFO - Fetched building insights and data layers.
+2025-02-18 03:56:35,240 - INFO - Started monthly flux data download.
+2025-02-18 03:56:36,949 - INFO - Downloaded subset from https://solar.googleapis.com/v1/geoTiff:get?id=MGNiZjk3OTNmZjY2YzJlZjdlMzQwOWNjNDY0NGE4N2EtMmVkNjBjNGJjOWNhNGYyOGMwNmJjODkyMTg0ODIwZGI6TU9OVEhMWV9GTFVYOkhJR0g&key=AIzaSyBEiZHGiOpjBQxi1uqNkRR8xT_cWDW_aiw in 1.71s.
+2025-02-18 03:56:38,297 - INFO - Downloaded subset from https://solar.googleapis.com/v1/geoTiff:get?id=MmIzNjgwMTc5ODMzOTZhNTBjM2Q3YTZmOGI1NzYwMjUtODg3OWMwNTE1ODViYjI4NDNhMDU2OWU1M2U3NTdlNmI6TUFTSzpISUdI&key=AIzaSyBEiZHGiOpjBQxi1uqNkRR8xT_cWDW_aiw in 3.06s.
+2025-02-18 03:56:38,300 - INFO - Created mask image in 0.00s.
+2025-02-18 03:56:38,612 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/mask_1739879798303.png
+2025-02-18 03:56:39,750 - INFO - Downloaded subset from https://solar.googleapis.com/v1/geoTiff:get?id=YTljYjIxY2U1NzE5OGVhNjNjOGNhYTc2ZjMyNTViMDUtZjc5YTAzNDZlMTViZjkwNzhkYmU1NzlkMTA0NDZiYzY6QU5OVUFMX0ZMVVg6SElHSA&key=AIzaSyBEiZHGiOpjBQxi1uqNkRR8xT_cWDW_aiw in 4.51s.
+2025-02-18 03:56:39,760 - INFO - Applied color ramp in 0.01s.
+2025-02-18 03:56:40,354 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/flux_1739879799782.png
+2025-02-18 03:56:40,741 - INFO - Downloaded subset from https://solar.googleapis.com/v1/geoTiff:get?id=MjRiYjgzZGExODJjNjk4MzZmNjE3Mzc2M2JkYzc1MTYtYTk3Y2Q3Y2Q4YTVmMTM3MTdmOGJiMzUyNzA1YTU0MTY6RFNNOkhJR0g&key=AIzaSyBEiZHGiOpjBQxi1uqNkRR8xT_cWDW_aiw in 5.50s.
+2025-02-18 03:56:40,754 - INFO - Applied color ramp in 0.01s.
+2025-02-18 03:56:41,077 - INFO - Downloaded subset from https://solar.googleapis.com/v1/geoTiff:get?id=ODM5NzdkN2IxODFlYzIwNjNmMDUxM2Y0ZDYwMjhkMGItM2ZiYmFiOTRkM2RkM2E2ZmM4ZWE0NWU3NmQ0N2FiZWE6UkdCOkhJR0g&key=AIzaSyBEiZHGiOpjBQxi1uqNkRR8xT_cWDW_aiw in 5.84s.
+2025-02-18 03:56:41,079 - INFO - Created RGB image in 0.00s.
+2025-02-18 03:56:41,159 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/dsm_1739879800767.png
+2025-02-18 03:56:41,421 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/rgb_1739879801097.png
+2025-02-18 03:56:41,422 - INFO - Monthly flux data downloaded.
+2025-02-18 03:56:41,422 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:41,423 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:41,424 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:41,425 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:41,425 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:41,426 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:41,427 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:41,428 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:41,428 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:41,429 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:41,430 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:41,430 - INFO - Applied color ramp in 0.00s.
+2025-02-18 03:56:41,430 - INFO - Created 12 monthly flux images in 0.01s.
+2025-02-18 03:56:41,447 - INFO - Reprojected raster in 0.01s.
+2025-02-18 03:56:41,496 - INFO - Reprojected raster in 0.06s.
+2025-02-18 03:56:41,541 - INFO - Applied color ramp in 0.04s.
+2025-02-18 03:56:41,542 - INFO - Applied color ramp in 0.04s.
+2025-02-18 03:56:41,543 - INFO - Applied color ramp in 0.04s.
+2025-02-18 03:56:41,544 - INFO - Applied color ramp in 0.04s.
+2025-02-18 03:56:41,544 - INFO - Applied color ramp in 0.04s.
+2025-02-18 03:56:41,544 - INFO - Applied color ramp in 0.04s.
+2025-02-18 03:56:41,544 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:56:41,546 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:56:41,546 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:56:41,547 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:56:41,548 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:56:41,551 - INFO - Applied color ramp in 0.05s.
+2025-02-18 03:56:41,688 - INFO - Composite flux completed in 0.14s.
+2025-02-18 03:56:41,700 - INFO - Composite flux completed in 0.15s.
+2025-02-18 03:56:41,709 - INFO - Composite flux completed in 0.15s.
+2025-02-18 03:56:41,711 - INFO - Composite flux completed in 0.16s.
+2025-02-18 03:56:41,716 - INFO - Composite flux completed in 0.17s.
+2025-02-18 03:56:41,717 - INFO - Composite flux completed in 0.17s.
+2025-02-18 03:56:41,722 - INFO - Composite flux completed in 0.16s.
+2025-02-18 03:56:41,722 - INFO - Composite flux completed in 0.16s.
+2025-02-18 03:56:41,723 - INFO - Composite flux completed in 0.17s.
+2025-02-18 03:56:41,723 - INFO - Composite flux completed in 0.15s.
+2025-02-18 03:56:41,726 - INFO - Composite flux completed in 0.15s.
+2025-02-18 03:56:41,728 - INFO - Composite flux completed in 0.16s.
+2025-02-18 03:56:42,567 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_1739879802001.gif
+2025-02-18 03:56:42,819 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_4_1739879801433.png
+2025-02-18 03:56:42,869 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_3_1739879801432.png
+2025-02-18 03:56:43,006 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_6_1739879801434.png
+2025-02-18 03:56:43,007 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_8_1739879801436.png
+2025-02-18 03:56:43,007 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_11_1739879801438.png
+2025-02-18 03:56:43,007 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_12_1739879801438.png
+2025-02-18 03:56:43,049 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_7_1739879801435.png
+2025-02-18 03:56:43,051 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_9_1739879801436.png
+2025-02-18 03:56:43,051 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_10_1739879801437.png
+2025-02-18 03:56:43,052 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_2_1739879801431.png
+2025-02-18 03:56:43,052 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_5_1739879801433.png
+2025-02-18 03:56:43,052 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_1_1739879801431.png
+2025-02-18 03:56:43,737 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_12_1739879801925.png
+2025-02-18 03:56:43,738 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_9_1739879801874.png
+2025-02-18 03:56:43,743 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_1_1739879801737.png
+2025-02-18 03:56:43,746 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_10_1739879801891.png
+2025-02-18 03:56:43,746 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_5_1739879801807.png
+2025-02-18 03:56:43,746 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_3_1739879801772.png
+2025-02-18 03:56:43,747 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_6_1739879801823.png
+2025-02-18 03:56:43,747 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_7_1739879801840.png
+2025-02-18 03:56:43,747 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_8_1739879801857.png
+2025-02-18 03:56:43,747 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_11_1739879801908.png
+2025-02-18 03:56:43,747 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_4_1739879801789.png
+2025-02-18 03:56:43,748 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_2_1739879801755.png
+2025-02-18 03:56:43,753 - INFO - Reprojected raster in 0.01s.
+2025-02-18 03:56:43,754 - INFO - Reprojected raster in 0.01s.
+2025-02-18 03:56:43,762 - INFO - Applied color ramp in 0.01s.
+2025-02-18 03:56:43,777 - INFO - Composite flux completed in 0.01s.
+2025-02-18 03:56:44,188 - INFO - Uploaded: 26002082-e74a-47fb-96f8-e0484acec0d6/FluxOverRGB_1739879803795.png
+2025-02-18 03:56:44,188 - INFO - Solar data processing completed in 9.78s.
+2025-02-18 03:56:44,190 - INFO - Solar data processed.
+2025-02-18 03:56:44,190 - INFO - Final update (shortened): {'status': 'completed', 'DSM': 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/dsm_1739879800767.png', 'RGB': 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/rgb_1739879801097.png', 'Mask': 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/mask_1739879798303.png', 'AnnualFlux': 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/flux_1739879799782.png', 'FluxOverRGB': 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/FluxOverRGB_1739879803795.png', 'MonthlyFluxCompositeGIF': 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_1739879802001.gif', 'MonthlyFlux12': ['https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_1_1739879801431.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_2_1739879801431.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_3_1739879801432.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_4_1739879801433.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_5_1739879801433.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_6_1739879801434.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_7_1739879801435.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_8_1739879801436.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_9_1739879801436.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_10_1739879801437.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_11_1739879801438.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFlux_12_1739879801438.png'], 'MonthlyFluxComposites': ['https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_1_1739879801737.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_2_1739879801755.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_3_1739879801772.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_4_1739879801789.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_5_1739879801807.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_6_1739879801823.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_7_1739879801840.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_8_1739879801857.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_9_1739879801874.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_10_1739879801891.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_11_1739879801908.png', 'https://golmwofsqcsclztyyfxt.supabase.co/storage/v1/object/public/property-images/26002082-e74a-47fb-96f8-e0484acec0d6/MonthlyFluxComposite_12_1739879801925.png']}
+2025-02-18 03:56:44,389 - INFO - Property record updated.
+2025-02-18 03:56:44,389 - INFO - Completed process_solar_task for 26002082-e74a-47fb-96f8-e0484acec0d6 in 10.22 seconds

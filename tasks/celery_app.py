@@ -2,6 +2,7 @@ import os
 import ssl
 from celery import Celery
 from dotenv import load_dotenv
+import tasks.fast_worker_tasks
 
 load_dotenv()
 
@@ -18,6 +19,6 @@ celery_app.conf.update(
     redis_backend_use_ssl={
         "ssl_cert_reqs": ssl.CERT_NONE
     },
-    include=["tasks.worker_tasks"],
+    include=["tasks.fast_worker_tasks"],
     broker_connection_retry_on_startup=True
 )
